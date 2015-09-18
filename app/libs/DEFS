@@ -1,12 +1,20 @@
 import urllib
+import subprocess
 
 #
 # This is a very quick-n-dirty bucklet for maven packages (jar and aar)
 #
 
+def get_file_url(group, name, version, ar):
+  return 'http://repo1.maven.org/maven2/{0}/{1}/{2}/{1}-{2}.{3}'.format(group.replace('.', '/'), name, version, ar)
+
+
+def get_jar(url):
+  subprocess.call('wget '+ url, shell=True)
+
 def mavensha1(group, name, version, ar):
 	try:
-		link = 'http://repo1.maven.org/maven2/{0}/{1}/{2}/{1}-{2}.{3}.sha1'.format(group.replace('.', '/'), name, version, ar)
+		link = get_file_url(group, name, version, ar) + '.sha1'
 		f = urllib.urlopen(link)
 		cksum = f.read()
 		int(cksum, 16) # will throw an error if cksum is not a hexadecimal string
@@ -41,6 +49,7 @@ def maven(pkg):
 					url = 'mvn:' + group + ':' + name + ':' + ar + ':' + version,
 					out = name + '.' + ar,
 				)
+				get_jar(get_file_url(group, name, version, ar))
  			return
 	print('Not found ' + pkg)
 

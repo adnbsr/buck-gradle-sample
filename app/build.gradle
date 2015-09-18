@@ -4,20 +4,18 @@ apply plugin: 'com.android.application'
 android{
     buildToolsVersion  '23.0.1'
     compileSdkVersion  22
-
-
     defaultConfig{
+
 
     }
 
-
+    lintOptions{
+      abortOnError false
+    }
 
 }
 
 
 dependencies{
-
-  compile fileTree(dir:'../buck-out/gen/app/libs',include :['*.jar','*.aar'])
-
-
+  compile fileTree(dir:'libs',include :['*.jar'])
 }
