@@ -11,10 +11,10 @@ Cons of buck are serious :
  - No library to implement fast config files
  - No Google library support (download and use as in eclipse ant build)
  - Small community
- 
+  
  Pros:
- 
+  
  - Really very fast **3-10 seconds** (install and run debug) 
-  - reusabilty focused
+ - reusabilty focused
  - native (c/c++) support
  - Pythonic Syntax  
