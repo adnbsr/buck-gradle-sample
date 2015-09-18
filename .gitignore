@@ -1,6 +1,11 @@
-*.iml
+# IntelliJ project files
 .idea
+*.iml
+out
+gen
 
-/buck-cache
-/buck-out
-/.buckd
+buck-cache
+buck-out
+.buckd
+build
+.gradle

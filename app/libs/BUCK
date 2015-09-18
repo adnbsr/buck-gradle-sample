@@ -1,0 +1,21 @@
+maven('com.squareup.okhttp:okhttp:2.4.0')
+maven('com.jakewharton.timber:timber:3.1.0')
+maven('com.android.support:design:22.2.1')
+maven('com.android.support:appcompat-v7:22.2.1')
+maven('com.squareup.retrofit:retrofit:1.9.0')
+maven('com.jpardogo.materialtabstrip:library:1.1.0')
+maven('com.jakewharton:butterknife:7.0.1')
+
+android_library(
+    name = 'deps',
+    exported_deps = [
+        ':okhttp',
+        ':timber',
+        ':retrofit',
+        ':library',
+        ':butterknife',
+    ],
+    visibility = [
+      'PUBLIC',
+    ],
+)
